@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+
+.bck-img{
+background-color: #cee8f0;
+}
+
+.wp{
+padding: 30px;
+width: 30% ;
+height: 14%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.wp_text{
+text-align: center;
+font-size: 36px;
+font-weight: bold;
+}
+
+h1 {
+
+text-align: center;
+margin: 1em 0 0.5em 0;
+font-weight: 600;
+font-family: 'Titillium Web', sans-serif;
+position: relative;
+font-size: 36px;
+line-height: 40px;
+padding: 15px 15px 15px 15px;
+
+color: white;
+background-color: #016064;
+border-radius: 0 10px 0 10px;
+}
+
+.nested_div{
+  background-color: white;
+}
+
+.wrap1 {
+
+  padding-top: 50px;
+  padding-bottom: 0px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center ;
+}
+
+.wrap2 {
+
+  padding-top: 0px;
+  padding-bottom: 10px;
+  height:30px;
+  width: 100%;
+  display: flex;
+  align-items: center ;
+}
+
+ .wrap2 a{
+ padding:5px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  background: #022D36
+  color: white;
+  }
+
+
+.wrap2 a:hover
+{
+     background: #E3242B;
+     color: white;
+     text-decoration:none;
+     cursor:pointer;
+     color: white;
+}
+
+hr {
+
+    background-color: black;
+    border: 0 none;
+    color: black;
+    height: 4px;
+    flex:1
+}
+
+.hr2 {
+
+    background-color: black;
+    border: 0 none;
+    color: white;
+    height: 0px;
+  flex:1
+
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #52B2BF;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #331800;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+  font-weight: bold;
+
+}
+
+    </style>
+</head>
+
+   <body id="body" class="bck-img" onload="GFG_Fun()">
+
+     <h1 class="head" id="main_head"> NETWORK TRAFFIC ANALYSER</h1>
+
+     <figure>
+        <img class="wp" src="{{url_for('static', filename='img/wallpaper.jpg')}}"/>
+        <figcaption class="wp_text">They call me the Network Detective..!</figcaption>
+    </figure>
+
+
+     <div class="navbar">
+          <a href="http://10.0.0.109/#/login">Eve-Login</a>
+          <a href="https://www.eveonline.com/news/view/current-connectivity-issues-and-troubleshooting">Troubleshoot</a>
+          <a href="https://www.eve-ng.net/index.php/faq/">FAQ</a>
+        </div>
+
+     <div class="nested_div">
+         <div id="imgloc" class="wrap1">
+         </div>
+
+         <div id="txtloc" class="wrap2">
+             {% for i in range(0,len)%}
+             <a href="{{ url_for('cool_form',variable=hostnames[i]) }}">{{ hostnames[i] }}</a>
+             {% if i != len-1 %}
+                <hr class="hr2">
+             {% endif %}
+             {% endfor %}
+         </div>
+     </div>
+
+
+     <script type="text/javascript">
+     globalImgControl = "";
+      function GFG_Fun() {
+
+            document.body.style.backgroundImage = "url('background.jpg')";
+            console.log(globalImgControl);
+
+            devices = globalImgControl.split(' ');
+            var i;
+            for (i=0;i<devices.length-1;i++)
+            {
+                var loc = document.getElementById("imgloc");
+                var div = document.createElement('div');
+                var hr = document.createElement('hr');
+                var img = document.createElement('img');
+                img.src = 'http://127.0.0.1:5000/'+devices[i];
+                img.style.width = "100px";
+                img.style.height = "100px";
+
+                div.appendChild(img)
+                loc.appendChild(div)
+                if(i != devices.length -2)
+                {
+                    loc.appendChild(hr)
+                }
+
+            }
+        }
+
+       var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+    globalImgControl = this.responseText;
+
+  }
+});
+
+xhr.open("GET", "http://127.0.0.1:5000/ImgControl");
+
+xhr.send();
+   </script>
+  </body>
+ </html>

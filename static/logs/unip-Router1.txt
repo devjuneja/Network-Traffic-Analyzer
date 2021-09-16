@@ -1,0 +1,50 @@
+ ---Hostname---
+unip-Router1
+
+---Device type---
+Router
+
+---NTP stats---
+ClOCK TIME: 06:37:49.544 EDT Mon May 3 2021
+Time Synchronised with the Server: 192.168.1.1
+Time delay: 7.794
+
+---Device Stats---
+VERSION INFO:  IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+UP_TIME:  1 hour, 0 minutes
+RELOAD REASON:  Unknown 
+
+---Memory Utilisation---
+proc_used: 7.754%
+proc_free: 92.246%
+io_used: 82.416%
+io_free: 17.584%
+
+---CPU Utilisation---
+5sec:10%
+1min:7%
+5min:7%
+
+---Access Lists---
+
+---Eigrp Enabled and its Stats---
+Flap Stats
+flaps: 0
+Eigrp Neighbours ['22.23.1.226'] on Interfaces ['Gi0/1']
+Up-Time of the device 22.23.1.226:  1 hour, 0 minutes
+ 
+Ping stats of the EIGRP Neighbour: 22.23.1.226
+Round_Trip_Time min:1,avg:4,max:9
+Ping success rate: 100
+Running on this interface: Gi0/1
+crc: 0
+input errors: 9
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39
+
+---Bgp Enabled and its Stats---
+
+BGP neighbour:123.168.1.20
+BGP uptime:never
+BGP prefix:Idle
+This neighbour is enrolled under Stale BGP

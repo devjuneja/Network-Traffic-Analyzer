@@ -1,0 +1,168 @@
+
+<html>
+
+<head>
+    <style>
+
+    .error{
+    color:red;
+    font-weight:bold;
+    }
+
+    body{
+    background-color:#e8ffff
+    }
+
+    h1 strong{
+     color:#A80C1E;
+     display:block;
+     font-size:55px;
+     font-weight:normal;
+     letter-spacing:-3.5px;
+     line-height:1em;
+     text-align: center;
+     }
+
+
+    table{
+        padding: 20px;
+        border-spacing: 3px;
+        border: 1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        background-color:#4d4d4d;
+    }
+
+    tr{
+    background-color:#cae9fb;
+    }
+
+    td{
+        border: 1px solid black;
+        padding: 15px;
+    }
+
+    .t1{
+        text-align:center;
+        font-family: Merriweather;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .t2{
+        font-family: Tahoma (sans-serif);
+        font-size: 14px;
+    }
+
+    tr:nth-child(even) {background-color: #a3d9f9;}
+
+    tr:hover {background-color: #f5f5f5;}
+    </style>
+</head>
+    <body>
+        <h1><strong>Device Logs</strong></h1>
+        <table>
+        {% for key,data in contents.items()%}
+            <tr>
+             <td class="t1">{{key}}</td>
+             <td class="t2">
+                {% for each in data %}
+
+                    {% if 'proc_used' in each %}
+                        {% set k = each.split(':') %}
+                        {% set k = k[1].split("%") %}
+                        {% set k = k[0] %}
+                        {% set k = k | float %}
+                        {% if k > 80%}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif 'io_used' in each %}
+                        {% set k = each.split(':') %}
+                        {% set k = k[1].split("%") %}
+                        {% set k = k[0] %}
+                        {% set k = k | float %}
+                        {% if k > 80%}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif '5sec' in each %}
+                        {% set k = each.split(':') %}
+                        {% set k = k[1].split("%") %}
+                        {% set k = k[0] %}
+                        {% set k = k | float %}
+                        {% if k > 80%}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif '1min' in each %}
+                        {% set k = each.split(':') %}
+                        {% set k = k[1].split("%") %}
+                        {% set k = k[0] %}
+                        {% set k = k | float %}
+                        {% if k > 80%}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif '5min' in each %}
+                        {% set k = each.split(':') %}
+                        {% set k = k[1].split("%") %}
+                        {% set k = k[0] %}
+                        {% set k = k | float %}
+                        {% if k > 80%}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif 'flaps' in each %}
+                        {% set k = each.split(': ') %}
+                        {% set k = k[1] %}
+                        {% set k = k | float %}
+                        {% if k > 5 %}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif 'crc' in each %}
+                        {% set k = each.split(': ') %}
+                        {% set k = k[1] %}
+                        {% set k = k | float %}
+                        {% if k > 5 %}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+                    {% elif 'input errors' in each %}
+                        {% set k = each.split(': ') %}
+                        {% set k = k[1] %}
+                        {% set k = k | float %}
+                        {% if k > 100 %}
+                            <pre class="error">{{each}}</pre>
+                        {% else %}
+                            <pre>{{each}}</pre>
+                        {% endif %}
+
+
+                    {% else %}
+                        <pre>{{each}}</pre>
+                    {% endif %}
+
+                {% endfor %}
+             </td>
+            </tr>
+         {% endfor %}
+            </table>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+ ---Hostname---
+hbg-Router2
+
+---Device type---
+Router
+
+---NTP stats---
+ClOCK TIME: 10:37:01.987 UTC Mon May 3 2021
+Time Synchronised with the Server: 192.168.1.225
+Time delay: 3.741
+
+---Device Stats---
+VERSION INFO:  IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+UP_TIME:  1 hour, 0 minutes
+RELOAD REASON:  Unknown 
+
+---Memory Utilisation---
+proc_used: 8.253%
+proc_free: 91.747%
+io_used: 83.526%
+io_free: 16.474%
+
+---CPU Utilisation---
+5sec:16%
+1min:7%
+5min:7%
+
+---Access Lists---
+
+---Eigrp Enabled and its Stats---
+Flap Stats
+flaps: 0
+Eigrp Neighbours ['123.168.2.10', '192.168.1.225', '123.168.3.56'] on Interfaces ['Gi0/0', 'Gi0/1', 'Gi0/2']
+Up-Time of the device 123.168.2.10:  1 hour, 0 minutes
+ 
+Ping stats of the EIGRP Neighbour: 123.168.2.10
+Round_Trip_Time min:1,avg:3,max:8
+Ping success rate: 100
+Running on this interface: Gi0/0
+crc: 0
+input errors: 0
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39
+Up-Time of the device 192.168.1.225:  1 hour, 0 minutes
+ 
+Ping stats of the EIGRP Neighbour: 192.168.1.225
+Round_Trip_Time min:2,avg:4,max:7
+Ping success rate: 100
+Running on this interface: Gi0/1
+crc: 0
+input errors: 920
+bandwidth: 1000000 Kbit
+reliability:97.25,tx_load:0.39,rx_load:0.39
+Up-Time of the device 123.168.3.56:  1 hour, 0 minutes
+ 
+Ping stats of the EIGRP Neighbour: 123.168.3.56
+Round_Trip_Time min:1,avg:3,max:7
+Ping success rate: 100
+Running on this interface: Gi0/2
+crc: 0
+input errors: 0
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39
+
+---Bgp Enabled and its Stats---
+
+BGP neighbour:123.168.2.10
+BGP uptime:00:59:09
+BGP prefix:11
+Running on this interface: Gi0/0
+crc: 0
+input errors: 0
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39
+
+BGP neighbour:123.168.3.56
+BGP uptime:00:59:15
+BGP prefix:11
+Running on this interface: Gi0/2
+crc: 0
+input errors: 0
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39

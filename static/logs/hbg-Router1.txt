@@ -1,0 +1,45 @@
+ ---Hostname---
+hbg-Router1
+
+---Device type---
+Router
+
+---NTP stats---
+ClOCK TIME: 06:36:42.262 EDT Mon May 3 2021
+Synchronised with the master server: 127.127.1.1
+Time delay: 0.000
+
+---Device Stats---
+VERSION INFO:  IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+UP_TIME:  59 minutes
+RELOAD REASON:  Unknown 
+
+---Memory Utilisation---
+proc_used: 7.564%
+proc_free: 92.436%
+io_used: 82.416%
+io_free: 17.584%
+
+---CPU Utilisation---
+5sec:19%
+1min:7%
+5min:7%
+
+---Access Lists---
+Extended IP access list 100
+    10 deny tcp any any eq ftp
+    20 permit ip any any (17855 matches)
+---Eigrp Enabled and its Stats---
+Flap Stats
+flaps: 0
+Eigrp Neighbours ['192.168.1.226'] on Interfaces ['Gi0/1']
+Up-Time of the device 192.168.1.226:  59 minutes
+ 
+Ping stats of the EIGRP Neighbour: 192.168.1.226
+Round_Trip_Time min:3,avg:4,max:8
+Ping success rate: 100
+Running on this interface: Gi0/1
+crc: 0
+input errors: 0
+bandwidth: 1000000 Kbit
+reliability:100.0,tx_load:0.39,rx_load:0.39
